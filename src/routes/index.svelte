@@ -16,9 +16,31 @@
 
 <h1>Welcome to KitQL</h1>
 
-{#each posts as { title, excerpt, slug }}
-  <a href={`/posts/${slug}`}>
-    <p>{title}</p>
-    <p>{excerpt}</p>
-  </a>
-{/each}
+<ul>
+  {#each posts as { title, excerpt, slug }}
+    <li>
+      <a class="nice" sveltekit:prefetch href={`/posts/${slug}`}>
+        <h3>{title}</h3>
+        <div class="subtitle">{excerpt}</div>
+      </a>
+    </li>
+  {/each}
+</ul>
+
+<style>
+  li {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h3 {
+    margin: 0;
+  }
+  .subtitle {
+    margin-left: 1rem;
+    color: darkgrey;
+  }
+</style>
