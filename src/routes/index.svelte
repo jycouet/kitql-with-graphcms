@@ -4,19 +4,19 @@
     AllPostsQueryStore,
   } from '$lib/graphql/_kitql/graphqlStores'
 
-  export const load = async ({ fetch }) => {
-    await AllPostsQuery({ fetch })
-    return {}
-  }
+  // export const load = async ({ fetch }) => {
+  //   await AllPostsQuery({ fetch })
+  //   return {}
+  // }
 </script>
 
 <script lang="ts">
-  let posts = $AllPostsQueryStore.data?.posts
+  // let posts = $AllPostsQueryStore.data?.posts
 </script>
 
 <h1>Welcome to KitQL</h1>
 
-<ul>
+<!-- <ul>
   {#each posts as { title, excerpt, slug }}
     <li>
       <a class="nice" sveltekit:prefetch href={`/posts/${slug}`}>
@@ -25,8 +25,7 @@
       </a>
     </li>
   {/each}
-</ul>
-
+</ul> -->
 <style>
   li {
     margin-bottom: 1rem;
