@@ -1,21 +1,17 @@
 <script lang="ts" context="module">
-  import { browser } from '$app/env'
   import {
     AllPostsQuery,
     AllPostsQueryStore,
   } from '$lib/graphql/_kitql/graphqlStores'
 
-  export const load = async ({ params, fetch }) => {
-    const { slug } = params
-    if (slug) await AllPostsQuery({ fetch })
+  export const load = async ({ fetch }) => {
+    await AllPostsQuery({ fetch })
     return {}
   }
 </script>
 
 <script lang="ts">
-  // without SSR
-  // $: browser && AllPostsQuery({})
-  $: posts = $AllPostsQueryStore?.data?.posts
+  let posts = $AllPostsQueryStore?.data?.posts
 </script>
 
 <h1>Welcome to KitQL</h1>
