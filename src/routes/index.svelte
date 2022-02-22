@@ -4,10 +4,17 @@
     AllPostsQuery,
     AllPostsQueryStore,
   } from '$lib/graphql/_kitql/graphqlStores'
+
+  export const load = async ({ params, fetch }) => {
+    const { slug } = params
+    if (slug) await AllPostsQuery({ fetch })
+    return {}
+  }
 </script>
 
 <script lang="ts">
-  $: browser && AllPostsQuery({})
+  // without SSR
+  // $: browser && AllPostsQuery({})
   $: posts = $AllPostsQueryStore?.data?.posts
 </script>
 
